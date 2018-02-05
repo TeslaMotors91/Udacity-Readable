@@ -3,6 +3,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+# Installation and Launch Instructions
+
+1. To install this project, simply clone or download the repository to your local machine
+
+2. Then run `yarn` or `npm install` inside the command prompt root folder that contains the package.json file.
+
+3. Finally run `yarn start`
+
+# Readable Project
+
+For the Readable project, you will build a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
