@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Title from '../components/common/Title';
+import { fetchCategories, fetchCategoryPosts } from '../actions';
 
 // Class to handle the organization of each component, this is one of two screen/routes
 class RootView extends Component {
+  componentWillMount() {
+    fetchCategories();
+  }
   render() {
+    console.log('PROPS: ', this.props.posts);
+
+    console.log('Good Afternoon sir.');
     return (
       <div className="list-books">
         <Title name="Root View" />
@@ -23,4 +31,6 @@ class RootView extends Component {
   }
 }
 
-export default RootView;
+const mapStateToProps = ({ posts }) => ({ posts });
+
+export default connect(mapStateToProps, { fetchCategories, fetchCategoryPosts })(RootView);
