@@ -4,11 +4,25 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import Title from '../components/common/Title';
+import Button from '../components/common/Button';
 import { fetchCategories, fetchCategoryPosts } from '../actions';
 import { capitalize } from '../utils/helpers';
 
 // Class to handle the organization of each component, this is one of two screen/routes
 class RootView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isToggleOn: true };
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
   componentWillMount() {
     this.props.fetchCategories();
   }
@@ -28,7 +42,10 @@ class RootView extends Component {
       <div className="list-books">
         <Title name="Root View" />
         {/* _props.map(prop => this.props.updateField(prop, props[prop])); */}
-        {_.map(categories, category => this.renderCategory(category))}
+        <Button name={'All'} key={'All'} onClick={this.handleClick} />
+        {_.map(categories, category => (
+          <Button name={capitalize(category.name)} key={category.name} onClick={this.handleClick} />
+        ))}
         <div className="post-detail">
           <Link to="/postDetail">Post Detail</Link>
         </div>
