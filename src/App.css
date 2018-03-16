@@ -1,28 +1,97 @@
-.App {
-  text-align: center;
+html {
+  font-size: 62.5%;
+  font-family: serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+  font-size: 1.8rem;
+  line-height: 1.618;
+  max-width: 38em;
+  margin: auto;
+  color: #4a4a4a;
+  background-color: #f9f9f9;
+  padding: 13px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+@media (max-width: 684px) {
+  body {
+    font-size: 1.53rem;
+  }
 }
 
-.App-title {
+@media (max-width: 382px) {
+  body {
+    font-size: 1.35rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+h1 {
+  font-size: 2.35em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+h5 {
+  font-size: 1.25em;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h6 {
+  font-size: 1em;
+}
+
+#root {
+  height: 100%;
+}
+
+.post {
+  border: 1px dashed #ff5138;
+  margin: 10px;
+  padding: 30px;
+}
+
+.sm-label {
+  color: lightcyan;
+}
+
+.post a.h2 {
+  color: #ff5138;
+}
+
+.post a:hover,
+.post a:active {
+  color: #eb1d00;
+  text-decoration: none;
+}
+
+textarea {
+  height: 10em;
 }

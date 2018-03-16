@@ -4,25 +4,28 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import Title from '../components/common/Title';
-import Button from '../components/common/Button';
+import Button from '../components/common/Buttons';
+import Buttons from '../components/common/Buttons';
 import { fetchCategories, fetchCategoryPosts } from '../actions';
 import { capitalize } from '../utils/helpers';
+
+const btnWidth = { width: '100px' };
+const defaultStyle = 'btn btn-outline-secondary mr-2';
+const activeStyle = 'btn btn-danger mr-2';
 
 // Class to handle the organization of each component, this is one of two screen/routes
 class RootView extends Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: true };
-
-    // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
+    this.state = { isChecked: true };
   }
 
-  handleClick() {
-    this.setState(prevState => ({
-      isToggleOn: !prevState.isToggleOn
-    }));
-  }
+  toggleChange = () => {
+    this.setState({
+      isChecked: !this.state.isChecked
+    });
+  };
+
   componentWillMount() {
     this.props.fetchCategories();
   }
@@ -39,22 +42,19 @@ class RootView extends Component {
     const { categories } = this.props;
 
     return (
-      <div className="list-books">
-        <Title name="Root View" />
-        {/* _props.map(prop => this.props.updateField(prop, props[prop])); */}
-        <Button name={'All'} key={'All'} onClick={this.handleClick} />
-        {_.map(categories, category => (
-          <Button name={capitalize(category.name)} key={category.name} onClick={this.handleClick} />
-        ))}
-        <div className="post-detail">
-          <Link to="/postDetail">Post Detail</Link>
+      <div className="list-categories">
+        <Title name="Readable" />
+        <div>
+          <Buttons name="All" />
+          <Buttons name="React" />
+          <Buttons name="Redux" />
+          <Buttons name="Udacity" />
         </div>
-        <div className="create-edit">
-          <Link to="/createEdit">Create and Edit</Link>
-        </div>
-        <div className="category">
-          <Link to="/category">Pick Category</Link>
-        </div>
+        <a style={{ fontSize: 15 }}> Sort By </a>
+        <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} />
+        <a style={{ fontSize: 15 }}> Date </a>
+        <input type="checkbox" checked={!this.state.isChecked} onChange={this.toggleChange} />
+        <a style={{ fontSize: 15 }}> Score </a>
       </div>
     );
   }

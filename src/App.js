@@ -1,9 +1,10 @@
 // Dependency import
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Local imports
 import RootView from './containers/RootView';
+import Header from './components/common/Header';
 import CategoryView from './containers/CategoryView';
 import PostDetailView from './containers/PostDetailView';
 import CreateEditView from './containers/CreateEditView';
@@ -13,12 +14,17 @@ import './App.css';
 class ReadableApp extends React.Component {
   render() {
     return (
-      <div className="app">
-        <Route exact path="/" component={RootView} />
-        <Route path="/category" component={CategoryView} />
-        <Route path="/postDetail" component={PostDetailView} />
-        <Route path="/createEdit" component={CreateEditView} />
-      </div>
+      <BrowserRouter>
+        <div>
+          {/* <Header title="Readable" /> */}
+          <Switch>
+            <Route exact path="/" component={RootView} />
+            <Route pexact path="/category" component={CategoryView} />
+            <Route exact path="/postDetail" component={PostDetailView} />
+            <Route exact path="/createEdit" component={CreateEditView} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
