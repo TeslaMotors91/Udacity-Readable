@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Local imports
 import RootView from './containers/RootView';
-import Header from './components/common/Header';
 import CategoryView from './containers/CategoryView';
 import PostDetailView from './containers/PostDetailView';
 import CreateEditView from './containers/CreateEditView';
