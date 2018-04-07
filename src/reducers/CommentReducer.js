@@ -46,3 +46,41 @@ export default function(state = INITIAL_STATE, action) {
       return state;
   }
 }
+
+import {
+  FETCH_COMMENTS,
+  ADD_COMMENT,
+  UPDATE_COMMENT,
+  DELETE_COMMENT
+} from '../actions/types'
+
+export default function (state = {}, action) {
+  switch (action.type) {
+    case RETRIEVE_COMMENTS:
+      const comments_obj = {};
+
+      for (let comment of action.comments) {
+        comments_obj[comment.id] = comment;
+      }
+
+      return comments_obj
+
+    case ADD_COMMENT:
+      return {
+        ...state,
+        [action.comment.id]: action.comment
+      }
+    case UPDATE_COMMENT:
+      return {
+        ...state,
+        [action.comment.id]: action.comment
+      }
+    case DELETE_COMMENT:
+        delete state[action.comment.id]
+        return {
+          ...state,
+        }
+    default:
+      return state
+  }
+}
