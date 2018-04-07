@@ -1,12 +1,23 @@
 import { FETCH_CATEGORIES } from '../actions/types';
 
-const INITIAL_STATE = {};
-
-export default function(state = INITIAL_STATE, action) {
+export function categories(state = {}, action) {
   switch (action.type) {
     case FETCH_CATEGORIES:
-      return action.payload.categories;
+      const category_obj = {};
+      console.log('INSIDe REDUCER', action.payload.categories);
+      // This is basically taking an array with object inside it
+      // and making it into an object with objects inside it.
+      // In the backend it is easier to send data with arrays
+      // and in the front end it is easier to manage data with objects.
+      for (let category of action.payload.categories) {
+        console.log('Category: ', category);
+        category_obj[category.name] = category;
+      }
+
+      return category_obj;
     default:
       return state;
   }
 }
+
+export default categories;
