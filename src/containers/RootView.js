@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Title from '../components/common/Title';
-import Buttons from '../components/common/Buttons';
+import HeaderButtons from '../components/HeaderButtons';
 import { fetchCategories, fetchCategoryPosts } from '../actions';
 import { capitalize } from '../utils/helpers';
 
@@ -37,19 +37,22 @@ class RootView extends Component {
     console.log('Category: ', categories);
 
     return (
-      <div className="list-categories">
+      <div className="App">
         <Title name="Readable" />
+        <HeaderButtons />
+
+        {/* <Buttons name="All" />
+          {typeof categories !== 'undefined' && categories.length > 0
+            ? categories.map(({ name }) => <Buttons key={name} name={name} />)
+            : null}
+        </div> */}
         <div>
-          <Buttons name="All" />
-          <Buttons name="React" />
-          <Buttons name="Redux" />
-          <Buttons name="Udacity" />
+          <a style={{ fontSize: 15 }}> Sort By </a>
+          <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} />
+          <a style={{ fontSize: 15 }}> Date </a>
+          <input type="checkbox" checked={!this.state.isChecked} onChange={this.toggleChange} />
+          <a style={{ fontSize: 15 }}> Score </a>
         </div>
-        <a style={{ fontSize: 15 }}> Sort By </a>
-        <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} />
-        <a style={{ fontSize: 15 }}> Date </a>
-        <input type="checkbox" checked={!this.state.isChecked} onChange={this.toggleChange} />
-        <a style={{ fontSize: 15 }}> Score </a>
       </div>
     );
   }

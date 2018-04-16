@@ -9,6 +9,7 @@ const Title = props => {
         style={{
           fontFamily: 'sansSerif',
           fontSize: 20,
+          display: 'center',
           textAlign: 'center',
           backgroundColor: '#343a40',
           color: 'white'
