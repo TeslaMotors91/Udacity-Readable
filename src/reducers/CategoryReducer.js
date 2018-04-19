@@ -1,20 +1,22 @@
-import { FETCH_CATEGORIES } from '../actions/types';
+import { FETCH_CATEGORIES, GET_ALL_CATEGORIES, GET_ALL_CATEGORIES_SUCCESS } from '../actions/types';
 
-export function categories(state = {}, action) {
+const INITIAL_STATE = {
+  categories: [],
+  categoriesArr: []
+};
+
+export function categories(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_CATEGORIES:
-      // const category_obj = {};
-      // console.log('Inside Reducer', action.payload.categories);
-      // This is basically taking an array with object inside it
-      // and making it into an object with objects inside it.
-      // In the backend it is easier to send data with arrays
-      // and in the front end it is easier to manage data with objects.
-      // for (let category of action.payload.categories) {
-      //   console.log('Category: ', category);
-      //   category_obj[category.name] = category;
-      // }
-
-      return action.payload.categories;
+      return { ...state, categories: action.payload.categories };
+    case GET_ALL_CATEGORIES: {
+      const categoriesArr = action.payload.categories.map(category => category.name);
+      return { ...state, categoriesArr: categoriesArr };
+    }
+    case GET_ALL_CATEGORIES_SUCCESS: {
+      const categories = action.categories.map(category => category.name);
+      return [...categories];
+    }
     default:
       return state;
   }
