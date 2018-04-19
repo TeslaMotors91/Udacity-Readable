@@ -96,6 +96,19 @@ h3 {
 .btn-primary {
   background-color: #f05f44;
   border-color: #f05f44;
+  color: black;
+}
+.btn-primary:active {
+  background-color: #ee4b08;
+  color: #000000;
+}
+.btn-secondary {
+  background-color: #000000;
+  color: #ee4b08;
+}
+.btn-secondary:active {
+  background-color: #000000;
+  color: #ee4b08;
 }
 
 .btn-primary:hover {
@@ -103,4 +116,38 @@ h3 {
   border-color: #ee4b08;
   /* border-width: 5px; */
   cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Plus Button to create post */
+.CreateButton-Container {
+  background: linear-gradient(90deg, #ee4b08 0%, #886653 100%);
+  position: fixed;
+  bottom: 25px;
+  left: 85%;
+  width: 45px;
+  height: 45px;
+  z-index: 100;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.CreateButton {
+  margin: 5px auto;
+  width: 50%;
+  height: 50%;
+  color: black;
+}
+
+.CreateButton p {
+  margin: 0;
+  padding-top: 0;
+  padding-left: 3px;
+  padding-bottom: 0;
+  padding-right: 0;
+  font-size: 1.6em;
 }
