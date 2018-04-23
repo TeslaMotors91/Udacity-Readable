@@ -7,7 +7,7 @@ class CreateButton extends Component {
       <div className="CreateButton-Container">
         <div className="CreateButton">
           <p>
-            <Link className="CreateButton" to="/new">
+            <Link className="CreateButton" to="/create">
               +
             </Link>
           </p>

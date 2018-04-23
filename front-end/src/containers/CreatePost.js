@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import PostForm from '../components/PostForm';
 import { addPost } from '../actions/PostsActions';
 
-class NewPost extends Component {
+class CreatePost extends Component {
   state = {
     redirect: false
   };
@@ -25,8 +25,8 @@ class NewPost extends Component {
   }
 }
 
-NewPost.propTypes = {
+CreatePost.propTypes = {
   addPost: PropTypes.func.isRequired
 };
 
-export default connect(null, { addPost })(NewPost);
+export default connect(null, { addPost })(CreatePost);

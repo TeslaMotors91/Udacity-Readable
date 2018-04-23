@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   GET_POSTS_BY_CATEGORY,
   DELETE_POST,
@@ -6,11 +7,19 @@ import {
   ADD_POST,
   EDIT_POST_BY_POST_ID
 } from './types';
+import { ROOT_URL, AUTH_HEADERS } from '../utils/constants';
 
-export const getPostsByCategory = category => ({
-  type: GET_POSTS_BY_CATEGORY,
-  category
-});
+axios.defaults.headers.common['Authorization'] = AUTH_HEADERS;
+
+/**
+ * Fetch posts by category
+ * @param  {String} category Specific type of category to fetch
+ */
+export const getPostsByCategory = category => dispatch =>
+  axios.get(`${ROOT_URL}/${category}/posts`).then(res => {
+    console.log('Fetch Category Posts: ', res.data);
+    dispatch({ type: GET_POSTS_BY_CATEGORY, payload: res.data });
+  });
 
 export const deletePost = id => ({
   type: DELETE_POST,
