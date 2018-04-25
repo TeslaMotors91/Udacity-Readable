@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PostsContainer from '../components/PostsComponent';
+import PostsComponent from '../components/PostsComponent';
 import { setSortBy } from '../actions/SortActions';
 
 import '../App.css';
@@ -34,7 +34,7 @@ class RootView extends Component {
       }
     }
 
-    return <PostsContainer sortBy={sortBy} posts={allPosts} changeSortBy={this.changeSortBy} />;
+    return <PostsComponent sortBy={sortBy} posts={allPosts} changeSortBy={this.changeSortBy} />;
   }
 }
 
